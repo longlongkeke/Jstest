@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul{
+				list-style: none;
+				
+			}
+			li{
+				margin-top: 10px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<input type="button"  value="-"/>
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价：<em>12.5元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button"  value="-"/>
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价：<em>10元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button"  value="-"/>
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价：<em>20元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button"  value="-"/>
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价：<em>15元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button"  value="-"/>
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价：<em>15.5元</em>
+				小计：<span>0元</span>
+			</li>
+		</ul>
+		
+		<div id="sum">
+			
+				总件数：<em>0</em>
+				花费：<span>0元</span>
+			
+		</div>
+				
+		<script>
+			var oul=document.getElementById("list");
+			var oli=oul.getElementsByTagName("li");
+			var strongs=document.getElementsByTagName("strong");
+			var spans=document.getElementsByTagName("span");
+			for (var i=0;i<oli.length;i++) {
+				f1(oli[i]);
+			}
+			function f1(oli){
+				console.log(oli)
+				var oinput=oli.getElementsByTagName("input");
+				var ostrong=oli.getElementsByTagName("strong")[0];
+				var oem=oli.getElementsByTagName("em")[0];
+				var ospan=oli.getElementsByTagName("span")[0];
+				var n1=Number(ostrong.innerHTML);
+				var n2=parseFloat(oem.innerHTML);
+				var osum=document.getElementById("sum");
+				var ojian=osum.getElementsByTagName("em")[0];
+				var ohua=osum.getElementsByTagName("span")[0];
+				
+				oinput[0].onclick=function(){
+					n1<=0?n1=0:n1--;
+					ostrong.innerHTML=n1;
+					ospan.innerHTML=n1*n2+"元";
+					sum();
+				}
+				oinput[1].onclick=function(){
+					
+					n1++;
+					ostrong.innerHTML=n1;
+					ospan.innerHTML=n1*n2+"元";
+					sum();
+					
+				}
+				console.log();
+				function sum(){
+					var a=0;
+					var b=0;
+					/*var c=0;*/
+					for(var i=0;i<strongs.length;i++){
+						a+=Number(strongs[i].innerHTML);
+						b+=parseFloat(spans[i].innerHTML);
+						console.log(b)
+						ojian.innerHTML=a+"件";
+						ohua.innerHTML=b+"元";
+					}
+					
+					
+					
+					
+				}
+			}
+			
+			
+//			function ck(a,b				
+//				oinput.onclick=function(){
+//				
+//				
+//			}
+//				
+//			}
+//			ck()
+			
+		</script>
+	</body>
+</html>

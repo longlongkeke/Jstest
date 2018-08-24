@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+		margin: 0;
+		padding: 0;
+		}
+		img{
+		width:520px;
+		height: 625px;
+		opacity: 0;
+		}
+		div{
+			width:100px;
+			height: 100px;
+			position: absolute;
+			background-color:red;
+			opacity: 1;
+			left:0px;
+			top:0px;
+			/*display:none;*/
+			
+		}
+		#div{
+			width:520px;
+			height: 625px;
+			background-color:#000 ;
+		
+		}
+		</style>
+		<script>
+			window.onload=function(){
+				var odiv=document.getElementById("div");
+				var oblock=document.getElementsByTagName("div");
+				
+				for(var i=0;i<30;i++){
+					oblock[i].style.left=(i%5)*105+"px";
+					oblock[i].style.top=parseInt(i/5)*105+"px";
+					odiv.innerHTML+="<div>"+"</div>";
+//					oblock.style.display='none';
+				/*	oblock[i].index=0;
+					index++;*/oblock[i].onmouseover=function(){
+						this.style.display="block";
+					
+					}
+				}
+				
+				
+				
+				
+			
+			
+			
+			}
+		
+		</script>
+	</head>
+	<body>
+	<div id="div">
+	<img src="img/pic.jpg" />
+	</div>
+	</body>
+</html>

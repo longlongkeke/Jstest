@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.in{
+				
+				width:400px;
+				
+			}
+			
+		</style>
+		<script>
+			window.onload=function(){
+				
+				var timer=null;
+				//var targetDate=new Date("April 25,2018 20:13:00");
+				//var sec=Math.floor((targetDate-NowDate)/1000);
+				//var str=Math.floor(sec/86400)+"天"+Math.floor(sec%86400/3600)+"小时"+Math.floor(sec%86400%3600/60)+"分"+Math.floor(sec%60)+"秒";
+				var ostart=document.getElementsByTagName("input")[2];
+				var otarget=document.getElementsByTagName("input")[0];
+				var ostr=document.getElementsByTagName("input")[1];
+				ostart.onclick=function(){
+					clearInterval(timer)
+					timer=setInterval(function(){
+						var NowDate=new Date();
+						var Target=new Date(otarget.value);
+					t=(Target-NowDate)/1000;
+					if(t>=0){
+						var str=Math.floor(t/86400)+"天"+Math.floor(t%86400/3600)+"小时"+Math.floor(t%86400%3600/60)+"分"+Math.floor(t%60)+"秒";
+					ostr.value=str
+						
+						
+					}
+					else{
+						
+						clearInterval(timer)
+					}
+					
+					
+						
+					},1000)
+					
+				}
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		距离：<input  class="in"    type="text" value="April 25,2018 20:13:00" /><br />
+		还剩：<input   class="in"  type="text"  value=""/>
+		<input type="button" value="开始倒计时" />
+		
+	</body>
+</html>

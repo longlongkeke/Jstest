@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script>
+			window.onload=function(){
+				
+				var timer=setInterval(fn1,1000);
+				var obody=document.body;
+				fn1();
+				function fn1(){
+					var str="";
+					var odate=new Date();
+					var oyear=odate.getFullYear();
+					var omonth=odate.getMonth()+1;
+					var oday=odate.getDate();
+					var oweek=odate.getDay();
+					switch(oweek){
+						case 0:
+						oweek="日";
+						break;
+						case 1:
+						oweek="一";
+						break;
+						case 2:
+						oweek="二";
+						break;
+						case 3:
+						oweek="三";
+						break;
+						case 4:
+						oweek="四";
+						break;
+						case 5:
+						oweek="五";
+						break;
+						case 6:
+						oweek="六";
+						break;
+					}
+					
+					var ohours=odate.getHours();
+					var ominutes=odate.getMinutes();
+					var osec=odate.getSeconds();
+					str=oyear+"年"+omonth+"月"+oday+" 星期"+oweek+" "+tosec(ohours)+":"+tosec(ominutes)+":"+tosec(osec);
+				    obody.innerHTML=str;
+					
+						
+					
+					
+				}
+				function tosec(osec){
+					return osec<10?'0'+osec:""+osec;
+					
+					
+				}
+				
+			}
+			
+		</script>
+		
+	</head>
+	<body style="font-size: 30px;">
+	</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			#box{
+				width:500px;
+				
+				background: #dee7e7;
+				margin: 100px auto;
+				position: relative;
+			}
+			#box_ul>li{
+				width:80px;
+				height: 26px;
+				line-height: 26px;
+				text-align: center;
+				float:left;
+				border:1px solid #ccc;
+				
+			}
+			#box_ul{
+				height: 50px;
+				position: absolute;
+				top:0px;
+				right: 0px;
+			}
+			h2{
+				border-bottom: 1px solid #333;
+			}
+			.show{
+				display:block !important;
+			}
+			#content div img{
+				height: 60px;
+				width: 47px;
+ 				border: 1px solid #000;
+				margin: 6px;
+				margin-left: 30px;
+				float: left;
+				margin-top: 0px;
+			}
+			#content li{
+				background: #ccc;
+				line-height: 47px;
+ 				position: relative;
+				font-size: 12px;
+				display: block;
+				border-bottom: 1px dashed #fff;
+			}
+			#content div{
+				
+				display: none;
+			}
+			#day,#week,#all{
+				display: none;
+			}
+			#content ul span{
+				position: absolute;
+				background: #0000FF;
+				text-align: center;
+				width:15px;
+				height: 15px;
+				line-height: 15px;
+				left: 0px;
+				top:4px;
+				color:white;
+			}
+			/*#content ul div{
+				position: absolute;
+				margin-left:0px;
+			}*/
+			
+			#content{
+				clear: left;
+			}
+			
+			#content li a{
+				display: block;
+				margin-left:28px;
+			}
+			#content li p{
+				margin-left: 10px;
+				
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var oul1=document.getElementById("box_ul");
+				var oli1=oul1.getElementsByTagName("li");//li集合
+				var oday=document.getElementById("day"),
+				oweek=document.getElementById("week"),
+				oall=document.getElementById("all");
+				var ocontent=document.getElementById("content");
+				var oul2=ocontent.getElementsByTagName("ul");//ul集合
+				function fn1(){
+					for (var i=0;i<oli1.length;i++) {
+						oli1[i].index=i;
+						oli1[i].onclick=function(){
+						for (var i=0;i<oul2.length;i++) {
+//							console.log("11111")
+							oul2[i].className="";
+						
+							console.log(oul2[i].style.display)
+						}
+							
+							oul2[this.index].className='show';
+							console.log(oul2[this.index].style.display)
+						
+					}
+					}
+					
+					
+				}
+				fn1();
+				
+				for (var i=0;i<oul2.length;i++) {
+					fn2(oul2[i]);
+				}
+				function fn2(li2){
+					var oli2=li2.getElementsByTagName("li");
+					
+					for (var i=0;i<oli2.length;i++) {
+						oli2[i].onmouseover=function(){
+							this.getElementsByTagName("a")[0].style.display="none";
+							this.getElementsByTagName("div")[0].style.display="block";
+						
+					}
+						oli2[i].onmouseout=function(){
+							this.getElementsByTagName("a")[0].style.display="block";
+							this.getElementsByTagName("div")[0].style.display="none";
+						
+					}
+						
+						
+					}
+					
+					
+				}
+				
+			
+				/* aLi1[num].className = 'active';
+        		 oul2[num].style.display = 'block';
+        		for(var i=0;i<aLi1.length;i++){
+           		 		aLi1[i].index=i;
+            		aLi1[i].onmouseover=function(){
+                    this.className='';
+                
+                for(var i=0;i<oul2.length;i++){
+                     oul2[i].style.display = 'none';
+                }
+                	 this.className='active';
+               		 oul2[ this.index ].style.display = 'block';
+            }*/
+        }
+        		
+        		
+       	
+        		
+        		
+        		
+        		</script>
+	</head>
+	<body>
+		<div id="box">
+			<h2>每日排行榜</h2>
+			<ul id="box_ul">
+			<li>今日</li>
+			<li>昨日</li>
+			<li>全部</li>
+			</ul>
+			<div id="content">
+			<ul  id="day" class="show">
+				<li>
+					<span>1</span>
+					<a href="#">张靓颖蹲火锅桌上唱歌引争议</a>
+					<div>
+						<img src="../fires/images/a1.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>2</span>
+					<a href="#">范丞丞戴假发自我陶醉</a>
+					<div>
+						<img src="../fires/images/a2.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>3</span>
+					<a href="#">张亮儿女为爸爸庆生超可爱</a>
+					<div>
+						<img src="../fires/images/a3.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>4</span>
+					<a href="#">黑暗料理！陈乔恩自黑厨艺</a>
+					<div>
+						<img src="../fires/images/a4.png" />
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>5</span>
+					<a href="#">陈伟霆剧中角色电话被打爆</a>
+					<div>
+						<img  src="../fires/images/a4.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>6</span>
+					<a href="#">李冰冰撩发展魅力</a>
+					<div>
+						<img src="../fires/images/a5.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>7</span>
+					<a href="#">海南“博彩”业开放谣言四起 官方澄清：无相关消息</a>
+					<div>
+						<img src="../img/1.jpg"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>8</span>
+					<a href="#">李彦宏谈大数据：中国人不敏感 愿意用隐私换便利</a>
+					<div>
+						<img src="../img/1.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>9</span>
+					<a href="#">五粮液背后隐患：经销商耐心在丧失 普五被国窖压境</a>
+					<div>
+						<img src="../img/10.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>10</span>
+					<a href="#">陈乔恩自黑厨艺黑暗料理！陈乔恩自黑厨艺</a>
+					<div>
+						<img src="../img/2.jpg" />
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+					
+			</ul>
+			<ul  id="week">
+				<li>
+					<span>1</span>
+					<a href="#">每周：桌上唱歌引争议</a>
+					<div>
+						<img src="../img/2.jpg"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>2</span>
+					<a href="#">每周：范丞丞戴假发自我陶醉</a>
+					<div>
+						<img src="../img/2.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>3</span>
+					<a href="#">每周：张亮儿女为爸爸庆生超可爱</a>
+					<div>
+						<img src="../img/3.jpg"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>4</span>
+					<a href="#">每周：黑暗料理！陈乔恩自黑厨艺</a>
+					<div>
+						<img src="../img/3.png" />
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>5</span>
+					<a href="#">每周：陈伟霆剧中角色电话被打爆</a>
+					<div>
+						<img  src="../img/4.jpg"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>6</span>
+					<a href="#">每周：李冰冰撩发展魅力</a>
+					<div>
+						<img src="../img/4.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>7</span>
+					<a href="#">每周：海南“博彩”业开放谣言四起 官方澄清：无相关消息</a>
+					<div>
+						<img src="../img/1.jpg"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>8</span>
+					<a href="#">每周：李彦宏谈大数据：中国人不敏感 愿意用隐私换便利</a>
+					<div>
+						<img src="../img/5.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>9</span>
+					<a href="#">每周：五粮液背后隐患：经销商耐心在丧失 普五被国窖压境</a>
+					<div>
+						<img src="../img/10.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>10</span>
+					<a href="#">每周：陈乔恩自黑厨艺黑暗料理！陈乔恩自黑厨艺</a>
+					<div>
+						<img src="../img/2.jpg" />
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+					
+	
+			
+			</ul>
+			<ul id="all" >
+				<li>
+					<span>1</span>
+					<a href="#">全部：火锅桌上唱歌引争议</a>
+					<div>
+						<img src="../fires/images/a2.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>2</span>
+					<a href="#">全部：范丞丞戴假发自我陶醉</a>
+					<div>
+						<img src="../fires/images/a1.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>3</span>
+					<a href="#">全部：张亮儿女为爸爸庆生超可爱</a>
+					<div>
+						<img src="../fires/images/a3.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>4</span>
+					<a href="#">全部：黑暗料理！陈乔恩自黑厨艺</a>
+					<div>
+						<img src="../fires/images/a4.png" />
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>5</span>
+					<a href="#">全部：陈伟霆剧中角色电话被打爆</a>
+					<div>
+						<img  src="../fires/images/a4.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>6</span>
+					<a href="#">全部：李冰冰撩发展魅力</a>
+					<div>
+						<img src="../fires/images/a5.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>7</span>
+					<a href="#">全部：海南“博彩”业开放谣言四起 官方澄清：无相关消息</a>
+					<div>
+						<img src="../img/1.jpg"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>8</span>
+					<a href="#">全部：李彦宏谈大数据：中国人不敏感 愿意用隐私换便利</a>
+					<div>
+						<img src="../img/1.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>9</span>
+					<a href="#">全部：五粮液背后隐患：经销商耐心在丧失 普五被国窖压境</a>
+					<div>
+						<img src="../img/10.png"/>
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+				<li>
+					<span>10</span>
+					<a href="#">全部：陈乔恩自黑厨艺黑暗料理！陈乔恩自黑厨艺</a>
+					<div>
+						<img src="../img/2.jpg" />
+						<p>解密：关于地球与人类的一千零一问</p>
+					</div>
+				</li>
+					
+	
+				
+				
+			</ul>
+			
+		</div>
+		</ul>
+		</div>
+		
+		
+	</body>
+</html>

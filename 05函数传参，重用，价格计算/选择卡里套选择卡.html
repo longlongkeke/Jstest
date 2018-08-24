@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding:0px;
+				margin:0px;
+			}
+			li{
+				list-style: none;
+			}
+			#oul>li{
+				width:100px;
+				height: 100px;
+				text-align: center;
+				line-height: 100px;
+				background: #3737;
+			}
+			#inside_oul{
+				width:400px;
+				position: absolute;
+				top:370px;
+				left: 50px;
+			}
+			#inside_oul>li{
+				width:200px;
+				height: 30px;
+				float: left;
+				text-align: center;
+				line-height: 30px;
+				background: #0000;
+				color:white;
+			}
+			div{
+				position: absolute;
+				top:0px;
+				left:100px;
+				display: none;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var oul=document.getElementById("inside_oul");
+				var ul_oul=document.getElementById("oul");
+				var ul_li=document.getElementsByClassName("oli");
+//				console.log(ul_li)
+				var oImg=document.getElementsByClassName("Img")[0];
+				var oli=oul.getElementsByTagName("li");
+				var img=["../fires/images/a3.png","../fires/images/a4.png"];
+				var num=0;
+				fn1();
+				function fn1(){
+					for (var i=0;i<ul_li.length;i++) {
+					ul_li[i].onmouseover=function(){
+						console.log(this)
+					this.getElementsByTagName("div")[0].style.display="block";
+				}
+				}
+					
+				}
+				
+				
+//				fn1()
+			/*	function fn1(){
+					for (var j=0;j<ul_li.length;j++) {
+						ul_li[i].onmouseover=function(){
+						
+						
+					}
+					}
+					
+					for (var i=0;i<oli.length;i++) {
+					oli[i].index=i;
+					
+					oli[i].onmouseover=function(){
+						console.log(this)
+						oImg.src=img[this.index];
+					}
+				}
+					
+				}*/
+				
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="oul">
+			<li class="oli">最新团购
+				<div  id="active" style="display: block">
+					<img  class="Img" src="../fires/images/a3.png" style="width:550px ;height: 400px" />
+					<ul id="inside_oul">
+					<li>最新团购</li>
+					<li>旧日时光</li>
+				</ul>
+				</div>
+				
+			</li>
+			<li class="oli">商城特惠
+				<div class="div">
+					<img  class="Img" src="../fires/img/photo.jpg" style="width:550px ;height: 400px" />
+					<ul id="inside_oul">
+					<li>男装</li>
+					<li>女装</li>
+				</ul>
+				</div>
+				
+			</li>
+			<li class="oli">名品推荐
+				<div class="div">
+					<img  class="Img" src="../fires/images/a5.png" style="width:550px ;height: 400px" />
+					<ul id="inside_oul">
+					<li>化妆品</li>
+					<li>护肤品</li>
+				</ul>
+				</div>
+				
+			</li>
+			<li class="oli">缤纷活动
+				<div class="div">
+					<img  class="Img" src="../fires/images/a2.png" style="width:550px ;height: 400px" />
+					<ul id="inside_oul">
+					<li>鞋子</li>
+					<li>装饰品</li>
+				</ul>
+				</div>
+				
+			</li>
+		</ul>
+	</body>
+</html>

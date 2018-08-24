@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box:before{
+				clear: all;
+				content: "";
+				
+				/*margin-bottom:5px;*/
+				display: block; clear: both;
+				}
+			#top{
+				width:260px;
+				height:370px;
+				position:absolute;
+				top:0px;
+				overflow: auto;
+				background-color: #0000FF;
+			}
+			#phone{
+				width: 300px;
+				height: 600px;
+				border-radius:20% ;
+				border:5px solid #778899;
+				margin:0 auto;
+				position:relative;
+			}
+			#black{
+				width:260px;
+				height: 450px;
+				border:5px solid #000000;
+				position: absolute;
+				left:15px;
+				top:75px;
+				
+			}
+			#point{
+				width:15px;
+				height: 15px;
+				background-color: #000000;
+				border-radius: 50%;
+				position:absolute;
+				top:19px;
+				left:145px;
+				
+			}
+			#span1{
+				width:10px;
+				height: 10px;
+				background-color: #000000;
+				border-radius: 50%;
+				position:absolute;
+				left:105px;
+				top:45px;
+			}
+			#span2{
+				width:65px;
+				height:6px;
+				position:absolute;
+				background-color: #000000;
+				left:124px;
+				top:47px;
+				border-radius: 20%;
+			}
+			#Img{
+				width:50px;
+				height: 50px;
+				border:5px solid #778899;
+				position: absolute;
+				background-color: #FFFFFF;
+				left:0.5px;
+				bottom:10px;
+				border-radius: 30%;
+				box-shadow: 0 3px 8px 0 rgba(0,0,0,.12);
+				cursor:pointer;
+			}
+			#bottom{
+				width:260px;
+				height:80px;
+				position:absolute;
+				background-color: #778899;
+				left:0px;
+				bottom:0px;
+			}
+			#black #text1{
+				width:150px;
+				height: 50px;
+				position:absolute;
+				background-color: white;
+				left:63px;
+				bottom:10px;
+				border-radius: 8px;
+				
+			}
+			#smile{
+				width:40px;height: 40px; position: absolute;top:5px;left:5px;
+			}
+			#confirm{
+				width:40px;
+				height: 40px;
+				/*border:5px solid #778899;*/
+				position: absolute;
+				background-color: #FFFFFF;
+				right:0px;
+				bottom:18px;
+				/*border-radius: 30%;*/
+				box-shadow: 0 3px 8px 0 rgba(0,0,0,.12);
+				text-align: center;
+				line-height: 40px;
+				
+				cursor:pointer;
+			}
+			/*.line fl{
+				float:right;
+				
+			}*/
+			.fl{
+				float:right;
+				
+			}
+			.f2{
+				float:left;
+				
+			}
+			/*.box{
+				display: block;
+				float: right;*/
+			.box :after{
+					 content: ''; display: block; clear: both;margin-bottom:5px;position: relative;}
+			.line{
+				width:60px;
+				height: auto;
+				line-height: 30px;
+				background-color: #ccc;
+				border-radius: 8px;
+				font-size:small;
+				
+			}
+			
+			.line2{
+				/*margin-left:40px;*/
+				background-color: #DAA520;
+				
+				/*border:1px solid ;*/
+			
+		</style>
+		<script>
+			window.onload=function(){
+//				var oImg=document.getElementById("smile");
+				var oconfirm=document.getElementById("confirm");
+				var obottom=document.getElementById("black").getElementsByTagName("div")[0];
+				var otop=document.getElementById("top");
+				var otext1=document.getElementById("text1");
+				var oblack=document.getElementById("black");
+//				console.log(obottom.innerHTML)
+				var osimle=document.getElementsByTagName("img")[0];
+//				console.log(osmile)
+				var src=["../img/smile.gif","../img/smile1.png"];
+				var change=true;
+				osimle.onclick=function(){
+					if (change) {
+						
+						osimle.src=src[1];
+						
+						change=false;
+					} else{
+						osimle.src=src[0];
+						//console.log(src[1]);
+						change=true;
+					}
+				}
+				
+				oconfirm.onclick=function(){
+					var ourl =  osimle.attributes["src"].nodeValue;
+					if (change) {
+	//					alert("234");
+						otop.innerHTML+='<div class="box"><img class="lines fl" src='+ourl+
+										'><span class="line fl">'+otext1.value+'</span> </div>';
+						otext1.value="";
+						
+					} else{
+						otop.innerHTML+='<div class="box"><img class="line1 f2" src='+ourl+
+										'> <span class="line line2 f2">'+otext1.value+'</span></div>';
+										console.log(ourl);
+//										console.log(osimle.width);
+//										console.log(obottom.innerHTML);
+						//change=true;
+						otext1.value="";
+					}
+				}
+			
+			}
+		
+		</script>
+	</head>
+	<body>
+		<div id="phone">
+			<div id="point">
+				
+			</div>
+			<span id="span1">
+				
+			</span>
+			<span id="span2">
+				
+			</span>
+			
+			<div id="black">
+				<div id="top">
+					
+				</div>
+				<div id="bottom">
+					<div id="Img">
+						<img id="smile" src="../img/smile.gif" />
+					</div>
+					<input id="text1" />
+					<span id="confirm">
+						发送
+					</span>
+				</div>
+				
+				
+			</div>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width:100px;
+				height: 100px;
+				background-color: #FF0000;
+				position: absolute;
+				left:0px;
+				top:0px;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var odiv=document.getElementsByTagName("div");
+				console.log(odiv)
+				var obtn=document.getElementsByTagName("input")[0];
+				obtn.onclick=function(){
+				for (var i=0;i<13;i++) {
+					document.body.innerHTML+="<div>"+"</div>";
+					odiv[i].style.left=(i*110)+"px";
+					odiv[i].style.top=i*110+"px";
+					if(i>=7){
+						odiv[i].style.left=(i*110)+"px";
+						odiv[i].style.top=(13-(i+1))*110+"px";
+					}
+				}
+				}
+			
+			}
+		</script>
+	</head>
+	
+	<body>
+		<input type="button"  value="点击" />
+		
+	</body>
+</html>

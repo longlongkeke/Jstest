@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<style type="text/css">
+			.photo{
+				width:180px;
+				float: left;
+				margin-left: 10px;
+				overflow: hidden;
+				margin-top: 15px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="photo">
+			<img src="img/photo.jpg"/>
+		</div>
+		<div class="photo">
+			<img src="img/photo.jpg" />
+		</div>
+		<div class="photo">
+			<img src="img/photo.jpg" />
+		</div>
+		<div class="photo">
+			<img src="img/photo.jpg" />
+		</div>
+		<div class="photo">
+			<img src="img/photo.jpg" />
+		</div>
+		<div class="photo">
+			<img src="img/photo.jpg" />
+		</div>
+		<div class="photo">
+			<img src="img/photo.jpg" />
+		</div>
+		<script type="text/javascript">
+			$("img").hover(
+				function(){
+					$(this).animate({"margin-left":"-100px"}
+					,100
+					)
+					
+				},
+				function(){
+					$(this).animate({"margin-left":"0px"}
+					,100
+					)
+				}
+				
+				
+			);
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../getcomputedStyle.js" ></script>
+		<style>
+			
+			.indiv{
+				width:100px;
+				height: 100px;
+				position: absolute;
+				top:50px;
+				
+				background: #FF0000;
+				border:1px solid #000;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var obtn=document.getElementById("btn");
+				var odiv=document.getElementById("div1");
+				var odiv2=document.getElementsByClassName("indiv")
+			
+				for (var i=0;i<10;i++) {
+					document.body.innerHTML+='<div class="indiv"></div>';
+					odiv2[i].style.left=(i%10)*150+'px';
+				}
+				
+				var timer=null;
+				/*obtn.onclick=function(){
+					console.log("1111")*/
+					
+						fn1(10,odiv2[0]);
+						fn1(20,odiv2[1]);
+						fn1(30,odiv2[2]);
+						fn1(40,odiv2[3]);
+						fn1(50,odiv2[4]);
+						fn1(60,odiv2[5]);
+						fn1(70,odiv2[6]);
+						fn1(80,odiv2[7]);
+						fn1(90,odiv2[8]);
+						fn1(100,odiv2[9]);
+				
+				function fn1(time,t){
+//	              clearInterval(timer);
+					timer=setInterval(function(){
+//						
+						var speed=parseInt(getStyle(t,"top"))+10;
+						if(speed>=600){
+							speed=600
+						}
+						t.style.top=speed+"px";
+						if(speed==600){
+						clearInterval(timer);	
+//						console.log(speed)
+					}
+						
+					},time)
+				}
+					
+				}
+			
+			
+		</script>
+	</head>
+	<body>
+		<input id="btn" type="button" value="确定"/>
+		
+		
+	</body>
+</html>

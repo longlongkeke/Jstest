@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>烟花特效</title>
+		<style type="text/css">
+			*{	
+				margin:  0;
+				padding: 0;
+			}
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				background: #000;
+				overflow: hidden;
+			}
+			.firework{
+				position: absolute;
+				width: 10px;
+				height: 50px;
+				background: red;
+				border-radius:50%;
+			}
+			.fire{
+				position: absolute;
+				width: 5px;
+				height: 10px;
+				background:white;
+				border-radius:50%;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			//step 1 ：document 当鼠标点击document时，生成子弹。
+			//var timer=1;
+			//console.log(timer);
+			document.onclick=function(e){
+				var e =e||window.event;
+				// document.body.innerHTML = ""
+				var x = e.clientX;
+				var y = e.clientY;
+				//console.log(x+","+y);
+				var h= document.body.clientHeight;
+				var box =document.createElement("div");//创建一个div元素。
+				box.className="firework";
+				document.body.appendChild(box);//把div元素追加到body里去。
+				box.style.left=x+"px";
+				box.style.top=h+"px";
+				box.style.background=color();
+			//step 2 ：子弹向上移动，直到鼠标的位置。
+				var s=10;
+				clearInterval(timer);
+				var timer=setInterval(function(){
+					
+					box.style.top=box.offsetTop-s+'px';
+					if(box.offsetTop<=y){
+						//box.style.top=y+'px';
+						clearInterval(timer);
+						document.body.removeChild(box);
+							creatfires(x,y,h);
+						
+						//step 3：产生烟花碎片。
+						//clearInterval(timer);
+					}
+					
+				},1000/60);
+		
+			}
+			function creatfires(x,y,h){
+					//console.log(x+","+y);
+					var n =	Math.ceil(Math.random()*50)+50;
+					var fires=[];
+					for(var i=0;i<n;i++){
+						fires[i]=document.createElement('div');
+						//console.log(fires[i]);
+						fires[i].className="fire";
+						document.body.appendChild(fires[i]);
+						//console.log(fires[i]);
+						fires[i].style.left = x+ 'px';
+						fires[i].style.top = y+'px';
+						fires[i].style.background = color();
+						
+						fires[i].speedX = Math.random()*20-10;
+						fires[i].speedy = Math.random()*20-10;
+						
+				//console.log("22");
+					}
+					var t = setInterval(function(){
+						var h = document.body.clientHeight;
+						for(var i=0;i<n;i++){
+							fires[i].style.left=fires[i].offsetLeft+fires[i].speedX+'px';
+							fires[i].style.top= fires[i].offsetTop+fires[i].speedy+'px';
+							fires[i].speedy+=0.5;
+							if(fires[i].offsetTop>h||fires[i].offsetLeft<0||fires[i].offsetLeft
+								>document.body.clientWidth){
+								//console.log(fires[i]);
+								document.body.removeChild(fires[i]);
+								//console.log("清楚");
+							}
+								
+						}
+						
+					},1000/60);
+					
+				}
+			//生成随机颜色。
+			function color(){
+				var r = Math.floor(Math.random()*256);
+				var g = Math.floor(Math.random()*256);
+				var b = Math.floor(Math.random()*256);
+				return "rgb("+r+","+g+","+b+")";
+			}
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

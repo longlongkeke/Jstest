@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				
+				
+			}
+			#first_div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			
+				
+
+			/*	float: left;*/
+			}
+			.bg{
+				position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			background:black;
+			z-index:1001;
+			opacity:0.2;
+			display:none; 
+
+			}
+			
+			#second_div{
+				width:300px;
+				height:300px;
+				background: #778899;
+				position: absolute;
+				z-index: 1003;
+			/*	float: right;*/
+				/*margin:0 auto;*/
+				/*position:fixed;*/
+				left: 40%;
+				top:30%;
+				padding:10px;
+				border:20px solid rgba(200,200, 200, 0.2);
+			
+				display: none;
+				/*margin-left: 360px;*/
+				/*vertical-align:middle;*/
+
+				
+				
+			}
+			#second_div span{
+				width:85px;
+				height:85px;
+				margin-left: 20px;
+				/*margin-top: 20px;*/
+				/*text-align: center;*/
+				line-height: 85px;
+				/*padding:5px;*/
+			}
+			strong{
+				margin-left:20px;
+				cursor:pointer;
+				/*display: block;*/
+			}
+			#color span{
+				
+			}
+			#first_color{
+				background-color: yellow;
+				
+			}
+			#second_color{
+				background-color: white;
+				
+			}
+			#three_color{
+				background-color: #0000FF;
+			}
+			#width span{
+				background-color: #FFFFFF;
+			}
+			#second_div button{
+				width:60px;
+				height:30px;
+				margin: 0 auto;
+				margin-left:60px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var ostr=document.getElementById("str");
+				var odiv=document.getElementById("second_div");
+				var obg=document.getElementsByClassName("bg")[0];
+				console.log(obg)
+				ostr.onclick=function(){
+					odiv.style.display='block';
+					obg.style.display='block';
+					//ostr.style.cursor="pointer";	
+				}
+				//var i=0;
+				var arry=new Array(
+					'yellow',
+					'white',
+					'#0000FF',
+					
+				);
+				var arry1=["180px","250px","340px"];
+				var arry2=["180px","250px","340px"];
+				var span=document.getElementById("color").getElementsByTagName("span");
+				var ofdiv=document.getElementById("first_div");
+				var width=document.getElementById("width").getElementsByTagName("span");
+				var height=document.getElementById("height").getElementsByTagName("span");
+				var recover=document.getElementById("second_div").getElementsByTagName("button")[0];
+				var confirm=document.getElementById("second_div").getElementsByTagName("button")[1];
+                
+				for(var i=0;i<span.length;i++){
+					span[i].index=i;
+					span[i].onclick=function(){
+						//alert(123)
+						//console.log(i)
+						//console.log(this.index)
+						/*console.log(arry);
+						alert(arry)*/
+						ofdiv.style.backgroundColor=arry[this.index];
+				
+					}
+				};
+				for (var j=0;j<width.length;j++) {
+					width[j].index=j;
+					width[j].onclick=function(){
+						ofdiv.style.width=arry1[this.index];
+						
+					}
+				};
+				for (var k=0;k<width.length;k++) {
+					height[k].index=k;
+					height[k].onclick=function(){
+						ofdiv.style.height=arry2[this.index];
+					}
+				
+				}
+				recover.onclick=function(){
+					ofdiv.style.width="100px";
+					ofdiv.style.height="100px";
+					ofdiv.style.backgroundColor='red';
+				}
+				confirm.onclick=function(){
+					odiv.style.display="none";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<span>为下面div添加样式</span><strong id="str">点击设置</strong>
+		<div id="first_div"></div>
+		<div class="bg"></div>
+		<div id="second_div">
+			<div id="color">
+			<strong>颜色：</strong>
+				<span id="first_color">黄色</span>
+				<span id="second_color">白色</span>
+				<span id="three_color">蓝色</span>
+			</div>
+			<div id="width">
+			<strong>请选择宽度：</strong>
+			<span id="first_width">180</span>
+			<span id="second_width">250</span>
+			<span id="three_width">340</span>
+			</div>
+			<div id="height">
+			<strong>请选择高度：</strong>
+			<span id="first_height">180</span>
+			<span id="second_height">250</span>
+			<span id="three_height">340</span>
+			</div>
+			<button>恢复</button>
+			<button>确定</button>
+		</div>
+	</body>
+</html>

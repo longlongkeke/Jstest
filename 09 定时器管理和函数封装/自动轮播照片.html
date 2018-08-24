@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width:400px;
+				height: 400px;
+				
+				margin:0 auto;
+				margin-top:200px;
+				
+			}
+		</style>
+		<script src="../getcomputedStyle.js"></script>
+		<script>
+			window.onload=function(){
+				var oImg=document.getElementsByClassName("Img")[0];
+				var timer=null;
+				var num=0;
+				//var Img1=["../fires/images/a4.png","../img/1.jpg","../img/4.jpg"];
+				timer=setInterval(function(){
+					var speed=getStyle(oImg,'left')+10+"px";
+					oImg.style.left=speed+"px";
+					if(speed==400){
+						clearInterval(timer);
+						
+					}
+				},30)
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<img class="Img" src="../img/2.jpg" style="width:400px;height:400px; position: absolute;left:960px"/>
+			
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding: 0;
+			}
+			#list{
+				list-style: none;
+				width:1000px;
+				height:50px;
+				margin:200px auto;
+				position: relative;
+			}
+			#list>li{
+				width:100px;
+				height: 50px;
+				background-color:#000000;
+				float: left;
+				/*position: relative;*/
+				color: white;
+				line-height: 50px;
+				text-align: center;
+			}
+			
+		</style>
+		<script>
+			window.onload=function(){
+				var oul=document.getElementById("list");
+				var oli=oul.getElementsByTagName("li");
+				var odiv=document.getElementsByTagName("div");
+				var timer=null;
+				for(var i=0;i<oli.length;i++){
+					oli[i].index=i;
+					odiv[i].index=i;
+					oli[i].onmouseover=function(){
+					
+						this.getElementsByTagName("div")[0].style.display="block";
+						this.style.backgroundColor="red";
+					}
+					
+						odiv[i].onmouseout=function(){
+						clearTimeout(timer);
+						timer=setTimeout(function fn2 (a) {
+						/*console.log(this)*/
+						for(var j=0;j<oli.length;j++){
+						odiv[j].style.display="none";
+					}
+						},1000)
+				
+					}
+					
+					oli[i].onmouseout=function(){
+						clearTimeout(timer);
+
+						
+						this.style.backgroundColor="";
+					}
+					
+					
+				}
+				
+			/*	oul.onmouseout=function(){
+							clearTimeout(timer);
+						timer=setTimeout(function(){
+							for(var i=0;i<oli.length;i++){
+							oli[i].getElementsByTagName("div")[0].style.backgroundColor="#0000FF";
+							}
+					
+						},2000)
+						
+					}*/
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="list">
+			<li>首页
+				<div id="div" style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				left: 0px;
+				border-top: 5px solid #0000FF">
+					<ul>
+						
+					</ul>
+				</div>
+			</li>
+			
+			<li>服饰
+				<div style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				
+				left:80px;
+				border-top: 5px solid #0000FF"></div>
+			</li>
+			<li>美容
+				<div style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				
+				left:180px;
+				border-top: 5px solid #0000FF"></div>
+			</li>
+			<li>运动
+				<div style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				
+				left:280px;
+				border-top: 5px solid #0000FF"></div>
+			</li>
+			<li>健康
+				<div style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				
+				left:380px;
+				border-top: 5px solid #0000FF"></div>
+			</li>
+			<li>电脑办公
+				<div style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				
+				left:480px;
+				border-top: 5px solid #0000FF"></div>
+			</li>
+			<li>家用电器
+				<div style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				
+				left:580px;border-top: 5px solid #0000FF"></div>
+			</li>
+			<li>酒水饮料
+				<div style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				border-top: 5px solid #0000FF;
+				left:680px;"></div>
+			</li>
+			<li>礼品鲜花
+				<div style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				border-top: 5px solid #0000FF;
+				left:780px;"></div>
+			</li>
+			<li>图书音像
+				<div style="width: 200px;
+				height: 50px;
+				background: red;
+				display: none;
+				position: absolute;
+				border-top: 5px solid #0000FF;
+				left:800px;"></div>
+			</li>
+		</ul>
+	</body>
+</html>

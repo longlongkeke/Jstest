@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			div{
+				width:100px;
+				height: 100px;
+				/*background-color: #FFFF00;*/
+				position:absolute;
+				left:0px;
+				top:0px;
+				
+				
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button"  value="自动生成10个div"/>
+		<script>
+			var OBtn=document.getElementsByTagName("input")[0];
+			var ODiv=document.getElementsByTagName("div");
+			OBtn.onclick=function(){
+				for(var i=0;i<100;i++){
+					document.body.innerHTML+='<div>'+i+'</div>';
+					ODiv[i].style.left=(i%10)*110+'px';
+					ODiv[i].style.top=parseInt(i/10)*110+'px';
+					var r= Math.floor(Math.random()*256);
+					var g= Math.floor(Math.random()*256);
+					var b= Math.floor(Math.random()*256);
+					var rgb="rgb("+r+","+g+","+b+")";
+					ODiv[i].style.background=rgb;
+					console.log(ODiv[i].style.background);
+				}
+				
+					
+//					if (i!==0&&i%10==0) {
+//						ODiv[i].style.top=10+i*100+"px";
+//						i=0;
+//						console.log(i)
+////						var j=0;
+////						j=i;
+////						console.log(j)
+//					for(var j=0;j<9;j++){
+//						ODiv[i].style.left=i+100+(100*j)+'px';
+//					}
+//						
+//					} else{
+//						
+//					}
+				}
+			
+
+var a=1;
+function fn1(){
+	alert(a);
+	a=2;
+}
+fn1();
+alert(a);
+
+				
+			
+		</script>
+	</body>
+</html>

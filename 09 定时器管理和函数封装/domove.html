@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.div1{
+				width:50px;
+				height: 50px;
+				position: absolute;
+				left:0px;
+				top:0px;
+				background: #0000FF;
+			}
+		</style>
+		<script src="../getcomputedStyle.js"></script>
+		<script>
+			window.onload=function(){
+				var odiv=document.getElementsByClassName("div1");
+				var timer=null;
+				var len=20;
+				var num=0;
+				
+				for (var i=0;i<len;i++){
+					document.body.innerHTML+='<div class="div1"></div>';
+					odiv[i].style.left=(i*60)+"px";
+					
+				}
+				
+				function domove(obj,attr,target,dir){
+					clearInterval(obj.timer);
+					obj.timer=setInterval(function(){
+						var speed=parseInt(getStyle(obj,attr))+dir;
+					if (speed>target&&dir>0 || speed<target&&dir<0) {
+						speed=target;
+					} 
+					 
+					obj.style[attr]=speed+"px";
+					if(speed==target){
+						clearInterval(obj.timer);
+						
+					}
+					
+					},30)
+					
+					
+				}
+				document.onclick=fn1;
+				function  fn1(){
+					if(parseInt(getStyle(odiv[odiv.length-1],'top'))==0){
+					clearInterval(timer);
+					timer=setInterval(function(){
+						domove(odiv[num],'top',600,20)
+						num++;
+						if(num===len){
+						clearInterval(timer);
+						num=0;
+						}
+					},100)
+					}
+			
+					if(parseInt(getStyle(odiv[odiv.length-1],'top'))==600){
+						clearInterval(timer);
+					timer=setInterval(function () {
+						domove(odiv[num],'top',0,-20);
+						num++
+						if (num===len) {
+							clearInterval(timer);
+							num=0;
+						}
+					},50)
+				}
+					
+				}
+				
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

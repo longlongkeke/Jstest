@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload=function(){
+			/*	var json1={
+					'name':"张三",
+					'age':12,
+					'img':['1.jpg','2.jpg','3.jpg','4.jpg']
+				}
+				
+				for(var attr in json1){
+					for (var i=2;i<json1[2];i++) {
+						alert(json1[2][i])
+					}
+					
+					
+					
+				
+			}*/
+			var str="";
+			for(var attr in window){
+				str+=attr+":"+window[attr]+"<br>";
+				
+			}
+			document.body.innerHTML=str;
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

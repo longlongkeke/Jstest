@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			#list{
+				margin:0 auto;
+				width:300px;
+				height: 500px;
+				border: 1px solid #333;
+			}
+			#list li{
+				
+				list-style: none;
+			}
+			.lis h2{
+				height: 30px;
+				background: url(img/ico1.gif) no-repeat 5px center #3737;
+				text-indent: 20px;
+			}
+			.lis .active{
+				height: 30px;
+				background: url(img/ico2.gif) no-repeat 5px center yellow;
+				text-indent: 20px;
+			}
+			
+			.lis li{
+				height: 20px;
+				text-indent: 20px;
+			}
+			.lis ul{
+				display: none;
+			}
+			.activetwo{
+				background-color: darkgreen;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var Olist=document.getElementById("list");
+				var Oh2=Olist.getElementsByTagName("h2");
+				var Olisul=Olist.getElementsByTagName("ul");
+				var Ul=document.getElementById("first_ul");
+				var Li=Ul.getElementsByTagName("li");
+				var Ultwo=document.getElementById("second_ul");
+				var Litwo=Ultwo.getElementsByTagName("li");
+				
+				for(var i=0; i<Oh2.length;i++){
+					Oh2[i].index=i;
+					Oh2[i].off=true;
+						Oh2[i].onclick=function(){
+					if(this.off==true){	
+						for(var i=0;i<Oh2.length;i++){//先清空所有的ul
+							Oh2[i].className="";
+							Olisul[i].style.display="none";
+						}
+						Olisul[this.index].style.display="block";//再当前添加
+						this.className="active";
+						this.off=false;
+						console.log("111")
+					}
+					
+					else{
+						console.log("34567")
+						
+						Olisul[this.index].style.display="none";
+						this.className="";
+						this.off=true;
+				}
+				}
+				var li=null;
+				var str=[];
+				}
+				for(var i=0;i<Olisul.length;i++){
+					li=Olisul[i].getElementsByTagName("li");
+					for(var j=0;j<li.length;j++){
+						str.push(li[j]);
+					}
+				}
+				for(var i=0;i<str.length;i++){
+					console.log(str)
+					str[i].onclick=function(){
+						console.log("123")
+						for(var i=0;i<str.length;i++){
+							str[i].className="";
+						}
+						this.className="activetwo";
+					}
+				}
+					
+				}
+				
+			
+				
+			
+			
+		</script>
+	</head>
+	<body>
+		<ul id="list">
+			<li class="lis">
+				<h2>我的好友</h2>
+				<ul id="first_ul">
+					<li>张三</li>
+					<li>张三</li>
+					<li>张三</li>
+					<li>张三</li>
+				</ul>
+			</li>
+			<li class="lis">
+				<h2>企业好友</h2>
+				<ul id="second_ul">
+					<li>李四</li>
+					<li>李四</li>
+					<li>李四</li>
+				</ul>
+			</li>
+			<li class="lis">
+				<h2>黑名单</h2>
+				<ul id="three_ul">
+					<li>王麻子</li>
+					<li>王麻子</li>
+				</ul>
+			</li>
+			<li class="lis">
+				<h2>特别关心</h2>
+				<ul id="four_ul">
+					<li>妈妈</li>
+					<li>妈妈</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

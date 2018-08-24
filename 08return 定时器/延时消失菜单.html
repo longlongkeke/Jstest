@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			#out_div{
+				width: 600px;
+				margin:0 auto;
+				position: relative;
+				top:200px;
+			}
+		#div1{
+			margin:50px 10px;
+			
+		}
+		
+		.ul1 li{
+			width:100px;
+			height: 30px;
+			float:left;
+			margin-right: 10px;
+			cursor: pointer;
+			list-style: none;
+			background-color:blue;
+			line-height: 30px;
+			text-align:center;
+			border-radius: 5px;
+			font-size: 16px;
+		}
+		.ul1 li:hover{
+			background-color:#333;
+			color:white;
+			
+		}
+		
+		#div2{
+			display:none;
+			
+		}
+		#div2 a{
+			text-decoration: none;
+		}
+		#div2 a:hover{
+			text-decoration: underline;
+		}
+		.ul2 li{
+		
+			height: 30px;
+			float:left;
+			margin-right: 10px;
+			cursor: pointer;
+			list-style: none;
+			background-color:white;
+			line-height: 30px;
+			text-align:center;
+			font-size: 13px;
+			
+			
+			
+		}
+		.ul2{
+			
+			position: absolute;
+			top:40px;
+			height: 30px;
+			border-radius: 5px;
+			border:1px solid #0000FF;
+		}
+			
+		</style>
+		<script>
+			window.onload=function(){
+				var odiv1=document.getElementById("div1");
+				var odiv2=document.getElementById("div2");
+				var oul1=odiv1.getElementsByTagName("ul")[0];
+				var oul2=odiv2.getElementsByTagName("ul")[0];
+				var oli1=odiv1.getElementsByTagName("li");
+				var  shuzu=[
+				['最近更新','活动','报名试听','学员反馈'],
+				['妙味讲师','培训方式','培训理念','联系我们'],
+				['般固','MATRIX','留学e网','ECMall'],
+				['JS教程','弹出层效果','3D球面标签云','Windows计算器']
+				]
+				var timer=null;
+				for(var i=0;i<oli1.length;i++){
+					oli1[i].index=i;
+					oli1[i].onmouseover=function(){
+						clearInterval(timer);
+						odiv2.style.display="block";
+						oul2.innerHTML="";
+						oul2.style.left=(this.index%10)*50+"px";
+						for(var i=0;i<shuzu[this.index].length;i++){
+						oul2.innerHTML+='<li><a href="#">'+shuzu[this.index][i]+'</a></li>';
+						
+						}
+				
+					
+				}
+					
+					
+					odiv2.onmouseout=function(){
+						clearInterval(timer);
+						timer=setInterval(function(){
+							odiv2.style.display="none";
+							
+						},1000);
+					}
+					
+					
+				}
+				
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="out_div">
+			<div id="div1">
+			<ul class="ul1">
+				<li>首页</li>
+				<li>关于我们</li>
+				<li>作品</li>
+				<li>博客</li>
+			</ul>
+		</div>
+		<div id="div2">
+			<ul class="ul2"></ul>
+		</div>
+			
+			
+		</div>
+		
+	</body>
+</html>

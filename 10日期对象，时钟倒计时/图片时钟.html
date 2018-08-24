@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			img:last-child{
+				
+				position: absolute;
+				
+			}
+			
+		</style>
+		<script>
+			window.onload=function(){
+				var oImg=document.getElementsByTagName("img");
+				//alert(oImg)
+				var op=document.getElementById("op");
+				var timer=setInterval(fn1,1000);
+				var obody=document.body;
+				fn1();
+				function fn1(){
+					var str="";
+					var odate=new Date();
+					var ohours=odate.getHours();
+					var ominutes=odate.getMinutes();
+					var osec=odate.getSeconds();
+					str=tosec(ohours)+":"+tosec(ominutes)+":"+tosec(osec);
+				    op.innerHTML=str;
+				    function domove(obj,attr,target,dir){
+					clearInterval(obj.timer);
+					obj.timer=setInterval(function(){
+						var speed=parseInt(getStyle(obj,attr))+dir;
+					if (speed>target&&dir>0 || speed<target&&dir<0) {
+						speed=target;
+					} 
+					 
+					obj.style[attr]=speed+"px";
+					if(speed==target){
+						clearInterval(obj.timer);
+						
+					}
+					
+					},30)
+					
+					
+				}
+				    function getStyle(obj,sattr){
+	
+							return	obj.currentStyle?obj.currentStyle[sattr]:getComputedStyle(obj)[sattr];
+					}
+				    for(var i=0;i<str.length;i++){
+				    	if(i==2||i==5){
+				    	oImg[i].src="../fires/img/colon.JPG";
+				    		
+				    	}
+				    	else{
+				    		domove(oImg[i],'top',-100,-10);
+				    	oImg[i].src="../fires/img/"+str.charAt(i)+".JPG";
+				    	
+						
+				    		
+				    	}
+					
+				    	
+				    }
+
+			}
+				function tosec(osec){
+					return osec<10?'0'+osec:""+osec;
+					
+					
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<p id="op">
+			
+		</p>
+		<img src="../fires/img/1.JPG" />
+		<img src="../fires/img/1.JPG" />
+		<img src="../fires/img/colon.JPG" />		
+		<img src="../fires/img/1.JPG" />
+		<img src="../fires/img/1.JPG" />
+		<img src="../fires/img/colon.JPG" />
+		<img src="../fires/img/1.JPG" />
+		<img src="../fires/img/1.JPG" />
+		
+	</body>
+</html>c

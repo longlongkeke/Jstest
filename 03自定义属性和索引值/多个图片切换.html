@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+		
+		margin:0;
+		padding:0;
+		}
+		ul{
+		list-style: none;
+		}
+		ul li{
+		width: 110px;
+		height: 140px;
+		float: left;
+		background: url(img/normal.png);
+		margin-left: 20px;
+		
+		}
+		
+		</style>
+		<script>
+		window.onload=function(){
+		var oli=document.getElementsByTagName("li");
+//		var off=true;
+		for(var i=0;i<oli.length;i++){
+			oli[i].off=true;
+			oli[i].onclick=function(){
+			//此时i为3，作用域的问题，所以不能在里面用i了，只能用this，也不能用oli[i];此时为undefined；因为是oli[3]不存在，。
+			if(this.off==true){
+			this.style.background="url(img/active.png)";
+			this.off=false;
+			}
+			else{
+			
+			this.style.background="url(img/normal.png)";
+			this.off=true;
+			}
+				
+			}
+		
+		
+		}
+		
+		
+		}
+		</script>
+	</head>
+	<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	</body>
+</html>
